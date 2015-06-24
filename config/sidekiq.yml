@@ -1,0 +1,6 @@
+:concurrency: 25
+:queues:
+  - [default, 1]
+  - [plane_actions, 2]
+:limits:
+  takeoffs: 1

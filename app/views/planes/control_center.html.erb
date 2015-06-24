@@ -1,0 +1,36 @@
+
+<div class="hidden">
+  <div class="plane-for-enqueue-item">
+    <%= form_for :plane, remote: true, html: { class: 'row enqueue-plane-form' } do |f| %>
+      <%= f.hidden_field :status, value: 'in_queue' %>
+      <div class="col-xs-4 form-group">
+        <%= select_tag :plane_id, options_for_select(@planes.map{ |p| [p.name, p.id] }), class: 'form-control select-plane' %>
+      </div>
+      <div class="col-xs-2">
+        <%= link_to 'delete', '#', class: 'btn btn-link delete-enqueue-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="planes-for-enqueue">
+  <div class="plane-for-enqueue">
+    <%= form_for :plane, remote: true, html: { class: 'row enqueue-plane-form' } do |f| %>
+      <%= f.hidden_field :status, value: 'in_queue' %>
+      <div class="col-xs-4 form-group">
+        <%= select_tag :plane_id, options_for_select(@planes.map{ |p| [p.name, p.id] }), class: 'form-control select-plane' %>
+      </div>
+      <div class="col-xs-2">
+        <%= link_to 'delete', '#', class: 'btn btn-link delete-enqueue-block' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'add', '#', class: 'btn btn-link add-plane-for-enqueue' %>
+
+<br>
+<br>
+
+<%= link_to 'Send planes', start_planes_path, class: 'btn btn-primary enqueue-button' %>
+<%= link_to 'Back', planes_path, class: 'btn btn-default' %>

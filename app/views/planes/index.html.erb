@@ -1,0 +1,36 @@
+
+<div class="container">
+
+<p>Planes</p>
+
+<%= link_to 'New plane', new_plane_path, class: 'btn btn-primary' %>
+<%= link_to 'Control center', control_center_planes_path, class: 'btn btn-primary' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>time_for_takeoff</th>
+      <th>status</th>
+      <th>links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @planes.each do |p| %>
+      <tr>
+        <td><%= p.id %></td>
+        <td><%= p.name %></td>
+        <td><%= p.time_for_takeoff %></td>
+        <td><%= p.status %></td>
+        <td>
+          <%= link_to 'show', plane_path(p), class: 'btn' %>
+          <%= link_to 'edit', edit_plane_path(p), class: 'btn' %>
+          <%= link_to 'delete', plane_path(p), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

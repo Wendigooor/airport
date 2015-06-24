@@ -1,0 +1,19 @@
+
+Name: <%= @plane.name %>
+<br>
+Time for takeoff: <%= @plane.time_for_takeoff %>
+<br>
+Status: <%= @plane.status %>
+<br>
+
+<div>
+  History:
+  <% @plane.histories.each do |h| %>
+    <p><%= h.created_at.strftime("%m/%d/%Y %I:%M:%S") %> - <%= h.value %></p>
+  <% end %>
+</div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_plane_path(@plane), class: 'btn btn-default' %>
+  <%= link_to 'Back', planes_path, class: 'btn btn-default' %>
+</div>
